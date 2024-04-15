@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - CareerHub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: linear-gradient(to right, #405de6, #5851db);
+      padding: 80px 0;
+      text-align: center;
+      color: #fff;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+      border-radius: 10px;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    .navbar {
+      background-color: #333;
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      color: #fff;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+
+    .navbar-toggler {
+      display: none;
+    }
+
+    .navbar-nav {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .nav-item {
+      margin-right: 20px;
+    }
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .services {
+      padding: 80px 20px; /* Adjusted padding for spacing */
+      text-align: center;
+    }
+
+    .services h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .services p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .service-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .service-item {
+      width: calc(33.33% - 20px);
+      margin: 0 10px;
+      margin-bottom: 30px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-item img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .service-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .service-item p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    footer {
+      background: linear-gradient(to right, #405de6, #5851db);
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      border-radius: 10px;
+      margin-top: 30px; /* Adjusted margin for spacing */
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 100px 0;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      .navbar-toggler {
+        display: block;
+      }
+
+      .navbar-nav {
+        display: none;
+        flex-direction: column;
+        padding: 10px 0;
+        background-color: #333;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in;
+      }
+
+      .navbar-nav.active {
+        max-height: 500px; /* adjust max-height to your needs */
+      }
+
+      .service-item {
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media (max-width: 576px) {
+      header {
+        padding: 120px 0;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.2rem;
+      }
+
+      .nav-link {
+        font-size: 1rem;
+      }
+
+      .services h2 {
+        font-size: 2rem;
+      }
+
+      .services p {
+        font-size: 1rem;
+      }
+
+      .service-item {
+        width: calc(100% - 20px);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">CareerHub</a>
+      <button class="navbar-toggler" onclick="toggleNav()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="navbar-nav" id="navbarNav">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="Services.html" class="nav-link">Services</a></li>
+        
+        <li class="nav-item"><a href="Blog.html" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <br><br><br>
+  <header>
+    <div class="container">
+      <h1>Our Services</h1>
+      <p>Explore our range of services to help you succeed in your career.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="services">
+      <div class="container">
+        <h2>Services We Offer</h2>
+        <p>We offer variety of services such as resume building, interview coaching and job search assistance. You can directly get in touch with the owner for enhanced experience.</p>
+      </div>
+
+      <div class="service-items">
+        <div class="service-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeWpQO92IfGWTWzEGRXt6QVe8h_uRghgC9rFdodOa9DQ&s" alt="Service 1">
+          <h3>Resume Building</h3>
+          <p>Create a professional resume that stands out.</p>
+        </div>
+        <div class="service-item">
+          <img src="https://resumespice.com/wp-content/uploads/2023/04/interview-prep-coaching-1.png" alt="Service 2">
+          <h3>Interview Coaching</h3>
+          <p>Prepare for interviews with confidence.</p>
+        </div>
+        <div class="service-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg1jcquHkOCwJlz0W5bHlrRVDzW2zQGM16dJp4YNO2iQ&s" alt="Service 3">
+          <h3>Job Search Assistance</h3>
+          <p>Get personalized support in finding the right job.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 CareerHub. All rights reserved. Designed by <a href="https://www.facebook.com/naveed.kaghanwal.7" style="color: #fff;">Naveed Ahmad</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      var nav = document.getElementById('navbarNav');
+      nav.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

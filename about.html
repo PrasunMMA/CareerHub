@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - CareerHub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: #333;
+      padding: 15px 0;
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand,
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+    }
+
+    .navbar-toggler {
+      display: none;
+    }
+
+    .navbar-nav {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .nav-item {
+      margin-right: 20px;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+      padding: 80px 0;
+      text-align: center;
+      color: #fff;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      animation: slideInDown 1s ease;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    /* About Section Styles */
+    .about {
+      padding: 80px 20px; /* Adjusted padding for spacing */
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    /* Team Members Styles */
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .team-member {
+      width: calc(33.33% - 20px);
+      margin: 0 10px;
+      margin-bottom: 30px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .team-member:hover {
+      transform: translateY(-10px);
+    }
+
+    .team-member img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .team-member h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .team-member p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      border-radius: 10px;
+      animation: slideInUp 1s ease;
+      margin-top: 30px; /* Adjusted margin for spacing */
+    }
+
+    /* Animation Styles */
+    @keyframes slideInDown {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* Media Queries */
+    @media (max-width: 1200px) {
+      header h1 {
+        font-size: 3rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.3rem;
+      }
+
+      .nav-link {
+        font-size: 1rem;
+      }
+
+      .about h2 {
+        font-size: 2rem;
+      }
+
+      .about p {
+        font-size: 1rem;
+      }
+
+      .team-member {
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.2rem;
+      }
+
+      .nav-link {
+        font-size: 1rem;
+      }
+
+      .navbar-toggler {
+        display: block;
+      }
+
+      .navbar-nav {
+        display: none;
+        flex-direction: column;
+        padding: 10px 0;
+        background-color: #333;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in;
+      }
+
+      .navbar-nav.active {
+        max-height: 500px; /* adjust max-height to your needs */
+      }
+
+      .nav-item {
+        margin-right: 0;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .about h2 {
+        font-size: 2rem;
+      }
+
+      .about p {
+        font-size: 1rem;
+      }
+
+      .team-member {
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media (max-width: 576px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 0.9rem;
+      }
+
+      .navbar-brand {
+        font-size: 1rem;
+      }
+
+      .nav-link {
+        font-size: 0.9rem;
+      }
+
+      .about h2 {
+        font-size: 1.8rem;
+      }
+
+      .about p {
+        font-size: 0.9rem;
+      }
+
+      .team-member {
+        width: calc(100% - 20px);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">CareerHub</a>
+      <button class="navbar-toggler" onclick="toggleNav()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="navbar-nav" id="navbarNav">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+        
+        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <h1>About Us</h1>
+      <p>Get to know the team behind CareerHub.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="about">
+      <h2>Our Team</h2>
+      <p>CareerHub was founded by Mr Naveed Ahmad who appointed John Mcgregor former CEO of PBuilders as the Head of the operation. The lead developer of the project is Prasun Tripathi who is also the founder of MMA-Hub.</p>
+    </section>
+
+    <div class="team-members">
+      <div class="team-member">
+    
+        <h3>John McGregor</h3>
+        <p>Head of the operation</p>
+      </div>
+      <div class="team-member">
+        <img src="https://scontent.fktm10-1.fna.fbcdn.net/v/t39.30808-1/412082610_2242725565922429_7827612662471926042_n.jpg?stp=dst-jpg_s320x320&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=36r3RdzdfEsAb7j_OPi&_nc_ht=scontent.fktm10-1.fna&oh=00_AfD9Z8DkAQZhMWcf5baxHGUqdBWNN43HpR11uggi95qkRw&oe=66228AA5" alt="Team Member 2">
+        <h3>Naveed Ahmad</h3>
+        <p>Founder</p>
+      </div>
+      <div class="team-member">
+      
+        <h3>Prasun Tripathi</h3>
+        <p>Lead Developer</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 CareerHub. All rights reserved. Designed by <a href="https://www.facebook.com/naveed.kaghanwal.7" style="color: #fff;">Naveed Ahmad</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      var nav = document.getElementById('navbarNav');
+      nav.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
